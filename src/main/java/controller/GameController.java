@@ -10,19 +10,59 @@ import java.util.List;
 
 public class GameController {
 
-    private Computer computer = new Computer();
-    private InputView inputView = new InputView();
-    private OutputView outputView = new OutputView();
-    private Validator validator = new Validator();
+    private final Computer computer;
+    private final InputView inputView;
+    private final OutputView outputView;
+    private final Validator validator;
+    private final Comparator comparator;
+
+    public GameController() {
+        this.computer = new Computer();
+        this.inputView = new InputView();
+        this.outputView = new OutputView();
+        this.validator = new Validator();
+        this.comparator = new Comparator();
+    } // GameController
+
+    public void runGame() {
+        outputView.printStartGame();
+        playGame();
+    } // runGame
 
     public void playGame() {
-        outputView.printStartGame();
         List<Integer> computerNumbers = computer.createRandomNumber();
-        List<Integer> userNumbers = inputView.inputUserNumber();
 
-        if (validator.checkValidNumbers(userNumbers)) {
-            // 비교
-        }
+        while (true) {
+            outputView.printGetInput();
+            List<Integer> userNumbers = inputView.inputUserNumber();
+
+            if (!validator.checkValidNumbers(userNumbers)) {
+                outputView.printInvalidInput();
+            } // end if
+
+            String hint = comparator.compareNumber(computerNumbers, userNumbers);
+            outputView.printHint(hint);
+
+            if ("3스트라이크".equals(hint)) {
+                outputView.printEndGame();
+                askReStartOrEndGame();
+                break;
+            } // end if
+        } // end while
     } // playGame
+
+    public void askReStartOrEndGame() {
+        outputView.printReStartOrEndGame();
+        String inputReStartOrEndGame = inputView.inputReStartOrEnd();
+
+        if (!validator.checkValidReStartOrEnd(inputReStartOrEndGame)) {
+            outputView.printInvalidInput();
+        } // end if
+
+        switch (inputReStartOrEndGame) {
+            case "재시작" : playGame(); break;
+            case "종료" : break;
+        } // end case
+    } // askReStartOrEndGame
 
 } // class

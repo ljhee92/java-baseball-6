@@ -33,4 +33,12 @@ public class Validator {
         return distinctNumbers.size() == DIGIT;
     } // isDuplicate
 
+    public boolean checkValidReStartOrEnd(String input) {
+        if ("재시작".equals(input) || "종료".equals(input)) {
+            return true;
+        } else {
+            throw new IllegalArgumentException("유효하지 않은 입력값입니다. 프로그램을 종료합니다.");
+        } // end else
+    } // checkValidReStartOrEnd
+
 } // class

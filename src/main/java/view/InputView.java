@@ -19,4 +19,9 @@ public class InputView {
         return userNumber;
     } // inputUserNumber
 
+    public String inputReStartOrEnd() {
+        String inputNumber = Console.readLine();
+        return "1".equals(inputNumber) ? "재시작" : "종료";
+    } // inputReStartOrEnd
+
 } // class
