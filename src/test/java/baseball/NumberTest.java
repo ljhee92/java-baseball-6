@@ -27,7 +27,7 @@ public class NumberTest {
     void setUp() {
         computer = new Computer();
         validator = new Validator();
-    } // setCreateRandomNumber
+    } // setUp
 
     @Test
     @DisplayName("컴퓨터 숫자 테스트")
