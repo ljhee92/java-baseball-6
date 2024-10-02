@@ -38,7 +38,7 @@ public class NumberTest {
     @ParameterizedTest(name = "{index}: {1}")
     @DisplayName("사용자 입력 예외 테스트")
     @MethodSource("generateData")
-    void testUserInvalidNumber(List<Integer> input, String message) {
+    void testUserInvalidNumber(List<Integer> input) {
         assertThatThrownBy(() -> validator.checkValidNumbers(input))
                 .isInstanceOf(IllegalArgumentException.class);
     } // testUserInvalidNumber
