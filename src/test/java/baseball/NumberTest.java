@@ -20,13 +20,11 @@ import static org.assertj.core.api.Assertions.assertThatThrownBy;
 @DisplayName("숫자 테스트")
 public class NumberTest {
 
-    private GameController gameController;
     private Computer computer;
     private Validator validator;
 
     @BeforeEach
     void setUp() {
-        gameController = new GameController();
         computer = new Computer();
         validator = new Validator();
     } // setCreateRandomNumber
