@@ -5,7 +5,7 @@ import camp.nextstep.edu.missionutils.Console;
 import java.util.ArrayList;
 import java.util.List;
 
-public class InputUserNumber {
+public class InputView {
 
     public List<Integer> inputUserNumber() {
         List<Integer> userNumber = new ArrayList<>();

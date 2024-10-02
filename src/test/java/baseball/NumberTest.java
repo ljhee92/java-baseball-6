@@ -1,17 +1,15 @@
 package baseball;
 
-import controller.Game;
-import model.CreateRandomNumber;
-import org.junit.jupiter.api.AfterEach;
+import controller.GameController;
+import model.Computer;
+import model.Validator;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.Arguments;
 import org.junit.jupiter.params.provider.MethodSource;
-import view.InputUserNumber;
 
-import java.io.InputStream;
 import java.util.Arrays;
 import java.util.List;
 import java.util.stream.Stream;
@@ -22,26 +20,28 @@ import static org.assertj.core.api.Assertions.assertThatThrownBy;
 @DisplayName("숫자 테스트")
 public class NumberTest {
 
-    private Game game;
-    private CreateRandomNumber createRandomNumber;
+    private GameController gameController;
+    private Computer computer;
+    private Validator validator;
 
     @BeforeEach
     void setUp() {
-        game = new Game();
-        createRandomNumber = new CreateRandomNumber();
+        gameController = new GameController();
+        computer = new Computer();
+        validator = new Validator();
     } // setCreateRandomNumber
 
     @Test
     @DisplayName("컴퓨터 숫자 테스트")
     void testComputerValidNumber() {
-        assertThat(game.checkValidNumbers(createRandomNumber.createRandomNumber())).isTrue();
+        assertThat(validator.checkValidNumbers(computer.createRandomNumber())).isTrue();
     } // testComputerValidNumber
 
     @ParameterizedTest(name = "{index}: {1}")
     @DisplayName("사용자 입력 예외 테스트")
     @MethodSource("generateData")
     void testUserInvalidNumber(List<Integer> input, String message) {
-        assertThatThrownBy(() -> game.checkValidNumbers(input))
+        assertThatThrownBy(() -> validator.checkValidNumbers(input))
                 .isInstanceOf(IllegalArgumentException.class);
     } // testUserInvalidNumber
 

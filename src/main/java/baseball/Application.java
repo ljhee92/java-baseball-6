@@ -1,11 +1,11 @@
 package baseball;
 
-import controller.Game;
+import controller.GameController;
 
 public class Application {
     public static void main(String[] args) {
         // TODO: 프로그램 구현
-        Game game = new Game();
-        game.startGame();
+        GameController gameController = new GameController();
+        gameController.playGame();
     } // main
 } // class
