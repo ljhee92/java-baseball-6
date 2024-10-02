@@ -1,6 +1,5 @@
 package baseball;
 
-import controller.GameController;
 import model.Computer;
 import model.Validator;
 import org.junit.jupiter.api.BeforeEach;
@@ -35,7 +34,7 @@ public class NumberTest {
         assertThat(validator.checkValidNumbers(computer.createRandomNumber())).isTrue();
     } // testComputerValidNumber
 
-    @ParameterizedTest(name = "{index}: {1}")
+    @ParameterizedTest(name = "{index} : {1}")
     @DisplayName("사용자 입력 예외 테스트")
     @MethodSource("generateData")
     void testUserInvalidNumber(List<Integer> input) {
