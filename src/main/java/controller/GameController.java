@@ -18,6 +18,7 @@ public class GameController {
     public static final String THREE_STRIKES = "3스트라이크";
     public static final String RESTART_GAME = "1";
     public static final String END_GAME = "2";
+    public static final boolean CONTINUE_GAME = true;
 
     public GameController() {
         this.computer = new Computer();
@@ -35,7 +36,7 @@ public class GameController {
     private void playGame() {
         List<Integer> computerNumbers = computer.createRandomNumber();
 
-        while (true) {
+        while (CONTINUE_GAME) {
             outputView.printGetInput();
             List<Integer> userNumbers = inputView.inputUserNumber();
 
