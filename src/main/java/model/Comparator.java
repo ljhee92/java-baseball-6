@@ -23,7 +23,7 @@ public class Comparator {
         return calculateResult(strike, ball);
     } // compareNumber
 
-    public String calculateResult(int strike, int ball) {
+    private String calculateResult(int strike, int ball) {
         StringBuilder compareResult = new StringBuilder();
 
         if (strike == 0 && ball == 0) {

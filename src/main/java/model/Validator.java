@@ -15,11 +15,11 @@ public class Validator {
         } // end else
     } // checkValidNumbers
 
-    public boolean isThreeDigits(List<Integer> numbers) {
+    private boolean isThreeDigits(List<Integer> numbers) {
         return numbers.size() == DIGIT;
     } // isThreeDigits
 
-    public boolean isInRange(List<Integer> numbers) {
+    private boolean isInRange(List<Integer> numbers) {
         for (int number : numbers) {
             if (number < MIN_RANGE || number > MAX_RANGE) {
                 return false;
@@ -28,7 +28,7 @@ public class Validator {
         return true;
     } // isInRange
 
-    public boolean isDuplicate(List<Integer> numbers) {
+    private boolean isDuplicate(List<Integer> numbers) {
         List<Integer> distinctNumbers = numbers.stream().distinct().toList();
         return distinctNumbers.size() == DIGIT;
     } // isDuplicate

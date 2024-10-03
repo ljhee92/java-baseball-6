@@ -29,7 +29,7 @@ public class GameController {
         playGame();
     } // runGame
 
-    public void playGame() {
+    private void playGame() {
         List<Integer> computerNumbers = computer.createRandomNumber();
 
         while (true) {
@@ -51,7 +51,7 @@ public class GameController {
         } // end while
     } // playGame
 
-    public void askReStartOrEndGame() {
+    private void askReStartOrEndGame() {
         outputView.printReStartOrEndGame();
         String inputReStartOrEndGame = inputView.inputReStartOrEnd();
 
