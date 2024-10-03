@@ -6,9 +6,9 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class Computer {
-    private static final int MIN_RANGE = 1;
-    private static final int MAX_RANGE = 9;
-    private static final int DIGIT = 3;
+    public static final int MIN_RANGE = 1;
+    public static final int MAX_RANGE = 9;
+    public static final int DIGIT = 3;
 
     public List<Integer> createRandomNumber() {
         List<Integer> computerRandomNumber = new ArrayList<>();
@@ -22,5 +22,4 @@ public class Computer {
 
         return computerRandomNumber;
     } // createRandomNumber
-
 } // class

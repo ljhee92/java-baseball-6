@@ -6,7 +6,6 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class InputView {
-
     public List<Integer> inputUserNumber() {
         List<Integer> userNumber = new ArrayList<>();
         String inputNumber = Console.readLine();
@@ -20,8 +19,6 @@ public class InputView {
     } // inputUserNumber
 
     public String inputReStartOrEnd() {
-        String inputNumber = Console.readLine();
-        return "1".equals(inputNumber) ? "재시작" : "종료";
+        return Console.readLine();
     } // inputReStartOrEnd
-
 } // class

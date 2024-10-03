@@ -1,25 +1,27 @@
 package model;
 
+import util.OutputMessage;
+
 import java.util.List;
 
-public class Validator {
-    private static final int MIN_RANGE = 1;
-    private static final int MAX_RANGE = 9;
-    private static final int DIGIT = 3;
+import static controller.GameController.END_GAME;
+import static controller.GameController.RESTART_GAME;
+import static model.Computer.*;
 
+public class Validator {
     public boolean checkValidNumbers(List<Integer> numbers) {
         if (isThreeDigits(numbers) && isInRange(numbers) && isDuplicate(numbers)) {
             return true;
         } else {
-            throw new IllegalArgumentException("유효하지 않은 입력값입니다. 프로그램을 종료합니다.");
+            throw new IllegalArgumentException(OutputMessage.INVALID_INPUT.message);
         } // end else
     } // checkValidNumbers
 
-    private boolean isThreeDigits(List<Integer> numbers) {
+    public boolean isThreeDigits(List<Integer> numbers) {
         return numbers.size() == DIGIT;
     } // isThreeDigits
 
-    private boolean isInRange(List<Integer> numbers) {
+    public boolean isInRange(List<Integer> numbers) {
         for (int number : numbers) {
             if (number < MIN_RANGE || number > MAX_RANGE) {
                 return false;
@@ -28,17 +30,16 @@ public class Validator {
         return true;
     } // isInRange
 
-    private boolean isDuplicate(List<Integer> numbers) {
+    public boolean isDuplicate(List<Integer> numbers) {
         List<Integer> distinctNumbers = numbers.stream().distinct().toList();
         return distinctNumbers.size() == DIGIT;
     } // isDuplicate
 
     public boolean checkValidReStartOrEnd(String input) {
-        if ("재시작".equals(input) || "종료".equals(input)) {
+        if (RESTART_GAME.equals(input) || END_GAME.equals(input)) {
             return true;
         } else {
-            throw new IllegalArgumentException("유효하지 않은 입력값입니다. 프로그램을 종료합니다.");
+            throw new IllegalArgumentException(OutputMessage.INVALID_INPUT.message);
         } // end else
     } // checkValidReStartOrEnd
-
 } // class

@@ -4,18 +4,19 @@ import java.util.List;
 import java.util.Objects;
 
 public class Comparator {
+    public static final int ZERO = 0;
 
     public String compareNumber(List<Integer> computerNumbers, List<Integer> userNumbers) {
-        int strike = 0;
-        int ball = 0;
+        int strike = ZERO;
+        int ball = ZERO;
 
-        for (int i = 0; i < userNumbers.size(); i++) {
-            if (Objects.equals(userNumbers.get(i), computerNumbers.get(i))) {
+        for (int index = ZERO; index < userNumbers.size(); index++) {
+            if (Objects.equals(userNumbers.get(index), computerNumbers.get(index))) {
                 strike++;
                 continue;
             } // end if
 
-            if (computerNumbers.contains(userNumbers.get(i))) {
+            if (computerNumbers.contains(userNumbers.get(index))) {
                 ball++;
             } // end if
         } // end for
@@ -26,11 +27,11 @@ public class Comparator {
     private String calculateResult(int strike, int ball) {
         StringBuilder compareResult = new StringBuilder();
 
-        if (strike == 0 && ball == 0) {
+        if (strike == ZERO && ball == ZERO) {
             compareResult.append("낫싱");
-        } else if (strike == 0 && ball > 0) {
+        } else if (strike == ZERO && ball > ZERO) {
             compareResult.append(ball).append("볼");
-        } else if (strike > 0 && ball > 0) {
+        } else if (strike > ZERO && ball > ZERO) {
             compareResult.append(ball).append("볼 ").append(strike).append("스트라이크");
         } else {
             compareResult.append(strike).append("스트라이크");
@@ -38,5 +39,4 @@ public class Comparator {
 
         return compareResult.toString();
     } // judgeResult
-
 } // class

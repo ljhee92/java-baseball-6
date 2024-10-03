@@ -1,17 +1,18 @@
 package view;
 
-public class OutputView {
+import util.OutputMessage;
 
+public class OutputView {
     public void printStartGame() {
-        System.out.println("숫자 야구 게임을 시작합니다.");
+        System.out.println(OutputMessage.START.message);
     } // printStartGame
 
     public void printGetInput() {
-        System.out.print("숫자를 입력해주세요 : ");
+        System.out.print(OutputMessage.REQUEST_INPUT.message);
     } // printGetInput
 
     public void printInvalidInput() {
-        System.out.println("유효하지 않은 입력값입니다. 프로그램을 종료합니다.");
+        System.out.println(OutputMessage.INVALID_INPUT.message);
     } // printInvalidInput
 
     public void printHint(String hint) {
@@ -19,11 +20,10 @@ public class OutputView {
     } // printHint
 
     public void printEndGame() {
-        System.out.println("3개의 숫자를 모두 맞히셨습니다! 게임 종료");
+        System.out.println(OutputMessage.END_GAME.message);
     } // printEndGame
 
     public void printReStartOrEndGame() {
-        System.out.println("게임을 새로 시작하려면 1, 종료하려면 2를 입력하세요.");
+        System.out.println(OutputMessage.RESTART_OR_END.message);
     } // printReStartOrEndGame
-
 } // class

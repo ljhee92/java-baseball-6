@@ -9,12 +9,15 @@ import view.OutputView;
 import java.util.List;
 
 public class GameController {
-
     private final Computer computer;
     private final InputView inputView;
     private final OutputView outputView;
     private final Validator validator;
     private final Comparator comparator;
+
+    public static final String THREE_STRIKES = "3스트라이크";
+    public static final String RESTART_GAME = "1";
+    public static final String END_GAME = "2";
 
     public GameController() {
         this.computer = new Computer();
@@ -43,7 +46,7 @@ public class GameController {
             String hint = comparator.compareNumber(computerNumbers, userNumbers);
             outputView.printHint(hint);
 
-            if ("3스트라이크".equals(hint)) {
+            if (THREE_STRIKES.equals(hint)) {
                 outputView.printEndGame();
                 askReStartOrEndGame();
                 break;
@@ -60,9 +63,8 @@ public class GameController {
         } // end if
 
         switch (inputReStartOrEndGame) {
-            case "재시작" : playGame(); break;
-            case "종료" : break;
+            case RESTART_GAME : playGame(); break;
+            case END_GAME : break;
         } // end case
     } // askReStartOrEndGame
-
 } // class
