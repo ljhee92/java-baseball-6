@@ -1,10 +1,10 @@
-package controller;
+package baseball.controller;
 
-import model.Comparator;
-import model.Computer;
-import model.Validator;
-import view.InputView;
-import view.OutputView;
+import baseball.model.Comparator;
+import baseball.model.Computer;
+import baseball.model.Validator;
+import baseball.view.InputView;
+import baseball.view.OutputView;
 
 import java.util.List;
 

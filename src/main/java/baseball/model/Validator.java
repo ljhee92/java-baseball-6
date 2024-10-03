@@ -1,12 +1,12 @@
-package model;
+package baseball.model;
 
-import util.OutputMessage;
+import baseball.util.OutputMessage;
 
 import java.util.List;
 
-import static controller.GameController.END_GAME;
-import static controller.GameController.RESTART_GAME;
-import static model.Computer.*;
+import static baseball.controller.GameController.END_GAME;
+import static baseball.controller.GameController.RESTART_GAME;
+import static baseball.model.Computer.*;
 
 public class Validator {
     public boolean checkValidNumbers(List<Integer> numbers) {

@@ -1,6 +1,6 @@
-package view;
+package baseball.view;
 
-import util.OutputMessage;
+import baseball.util.OutputMessage;
 
 public class OutputView {
     public void printStartGame() {

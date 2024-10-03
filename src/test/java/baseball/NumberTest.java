@@ -1,7 +1,7 @@
 package baseball;
 
-import model.Computer;
-import model.Validator;
+import baseball.model.Computer;
+import baseball.model.Validator;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
