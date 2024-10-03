@@ -8,7 +8,6 @@ public class Comparator {
     public String compareNumber(List<Integer> computerNumbers, List<Integer> userNumbers) {
         int strike = 0;
         int ball = 0;
-        StringBuilder compareResult = new StringBuilder();
 
         for (int i = 0; i < userNumbers.size(); i++) {
             if (Objects.equals(userNumbers.get(i), computerNumbers.get(i))) {
@@ -21,6 +20,12 @@ public class Comparator {
             } // end if
         } // end for
 
+        return calculateResult(strike, ball);
+    } // compareNumber
+
+    public String calculateResult(int strike, int ball) {
+        StringBuilder compareResult = new StringBuilder();
+
         if (strike == 0 && ball == 0) {
             compareResult.append("낫싱");
         } else if (strike == 0 && ball > 0) {
@@ -32,6 +37,6 @@ public class Comparator {
         } // end else
 
         return compareResult.toString();
-    } // compareNumber
+    } // judgeResult
 
 } // class
